@@ -1,7 +1,8 @@
+using System.Reflection;
 using System.Windows;
 using Autofac;
+using Autofac.Integration.WebApi;
 using Caliburn.Micro.Autofac;
-using CefSharp;
 using Microsoft.Owin.Hosting;
 
 namespace hello.webapi.wpf
@@ -10,14 +11,15 @@ namespace hello.webapi.wpf
     {
         public AppBootstrapper()
         {
-            Cef.Initialize(new CefSettings());
-
             Initialize();
         }
 
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
+            builder.RegisterType<SalesViewModel>().AsImplementedInterfaces().SingleInstance();
 
+            // cf.: http://autofac.readthedocs.org/en/latest/integration/webapi.html#register-controllers
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
         }
 
         protected override void ConfigureBootstrapper()
@@ -26,16 +28,12 @@ namespace hello.webapi.wpf
             EnforceNamespaceConvention = false;
         }
 
-
-        public static string baseWebAPIAddress = "http://localhost:9000/";
-        public static string baseWebSignalRAddress = "http://localhost:8080/";
-
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
             DisplayRootViewFor<ShellViewModel>();
 
-            WebApp.Start<OwinWebApiConfig>(url: baseWebAPIAddress);
-            WebApp.Start<OwinSignalRConfig>(url: baseWebSignalRAddress);
+            OwinWebApiConfig.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
+            WebApp.Start<OwinWebApiConfig>("http://localhost:9000/");
         }
     }
 }

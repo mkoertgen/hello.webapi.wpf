@@ -1,8 +1,8 @@
 namespace hello.webapi.wpf
 {
-    public class Sale
+    public class Sale : ISale
     {
-        public string SaleId { get; set; }
-        public string BuyerName { get; set; }
+        public string Id { get; set; }
+        public string Buyer { get; set; }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace hello.webapi.wpf
 {
     /// <summary>
-    /// Interaction logic for BrowserView.xaml
+    /// Interaction logic for SaleView.xaml
     /// </summary>
-    public partial class BrowserView : UserControl
+    public partial class SaleView : UserControl
     {
-        public BrowserView()
+        public SaleView()
         {
             InitializeComponent();
         }
