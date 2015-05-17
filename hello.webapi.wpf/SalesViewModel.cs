@@ -8,8 +8,8 @@ namespace hello.webapi.wpf
     {
         private readonly BindableCollection<SaleViewModel> _sales = new BindableCollection<SaleViewModel>
         {
-            new SaleViewModel{ Id = "4645", Buyer = "John Smith"}
-            ,new SaleViewModel{ Id = "23455", Buyer = "Mark Johnson"}
+            new SaleViewModel{ Id = 4645, Buyer = "John Smith"}
+            ,new SaleViewModel{ Id = 23455, Buyer = "Mark Johnson"}
         };
         private SaleViewModel _selectedSale;
 

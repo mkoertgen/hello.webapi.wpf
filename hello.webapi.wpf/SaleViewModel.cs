@@ -4,10 +4,10 @@ namespace hello.webapi.wpf
 {
     public class SaleViewModel : PropertyChangedBase, ISale
     {
-        private string _id;
+        private int _id;
         private string _buyer;
 
-        public string Id
+        public int Id
         {
             get { return _id; }
             set
