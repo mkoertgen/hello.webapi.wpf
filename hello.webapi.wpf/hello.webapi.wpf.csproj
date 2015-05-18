@@ -183,9 +183,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IMessageService.cs" />
     <Compile Include="ISale.cs" />
     <Compile Include="ISalesViewModel.cs" />
     <Compile Include="IHaveSales.cs" />
+    <Compile Include="MessageController.cs" />
+    <Compile Include="MessageEvent.cs" />
+    <Compile Include="MessageService.cs" />
     <Compile Include="OwinWebApiConfig.cs" />
     <Compile Include="Sale.cs" />
     <Compile Include="SaleExtensions.cs" />

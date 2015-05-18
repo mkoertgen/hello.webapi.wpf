@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Windows;
 using Autofac;
 using Autofac.Integration.WebApi;
+using Caliburn.Micro;
 using Caliburn.Micro.Autofac;
 using Microsoft.Owin.Hosting;
 
@@ -16,6 +17,9 @@ namespace hello.webapi.wpf
 
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
+            builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
+            builder.RegisterType<MessageService>().As<IMessageService>().SingleInstance();
+
             builder.RegisterType<SalesViewModel>().AsImplementedInterfaces().SingleInstance();
 
             // cf.: http://autofac.readthedocs.org/en/latest/integration/webapi.html#register-controllers
