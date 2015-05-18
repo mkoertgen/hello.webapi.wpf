@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hello.webapi.wpf", "hello.webapi.wpf\hello.webapi.wpf.csproj", "{45C29D27-4CDC-4676-B3D5-D6DAE29D4746}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC8BC92F-36D0-4060-8FD1-396B617D13F5}"
+	ProjectSection(SolutionItems) = preProject
+		hello.webapi.wpf.png = hello.webapi.wpf.png
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

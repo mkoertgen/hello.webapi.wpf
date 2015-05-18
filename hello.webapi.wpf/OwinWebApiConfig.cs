@@ -2,6 +2,7 @@ using System.Web.Http;
 using System.Web.Http.Dependencies;
 using Newtonsoft.Json.Converters;
 using Owin;
+using Swashbuckle.Application;
 
 namespace hello.webapi.wpf
 {
@@ -11,8 +12,10 @@ namespace hello.webapi.wpf
 
         public void Configuration(IAppBuilder appBuilder)
         {
-            // Configure Web API for self-host. 
             var config = new HttpConfiguration();
+
+            config.EnableCors();
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -27,6 +30,11 @@ namespace hello.webapi.wpf
 
             if (DependencyResolver != null)
                 config.DependencyResolver = DependencyResolver;
+
+            // add swagger/swashbuckle, cf.: https://github.com/domaindrivendev/Swashbuckle
+            config
+                .EnableSwagger(c => c.SingleApiVersion("v1", "A title for your API"))
+                .EnableSwaggerUi();
 
             appBuilder.UseWebApi(config);
         }
