@@ -39,8 +39,6 @@ or [http://localhost:9000/api/sales/4645](http://localhost:9000/api/sales/4645)
 
 Use `POST` to add, `PUT` for update and `DELETE` to remove a sale. 
 
-### swagger
-
 ### Motivation
 
 Many companies need to maintain large codebases for legacy products like fat desktop clients with a two-tier client-server architecture. This makes migration to the web hard. Adding a REST Api to the desktop clients enables interoperability to web applications. Once the REST Api is in place, a gradual migration to a three-tier architecture is possible, at your own pace.
