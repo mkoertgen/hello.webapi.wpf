@@ -1,10 +1,8 @@
 using System;
-using System.ComponentModel.Composition;
 using Caliburn.Micro;
 
 namespace hello.webapi.wpf
 {
-    [Export(typeof(IShell))]
     public class ShellViewModel : Screen, IShell
     {
         private readonly IMessageService _messageService;

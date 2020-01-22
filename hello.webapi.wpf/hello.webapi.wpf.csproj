@@ -1,184 +1,36 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop" ToolsVersion="Current">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45C29D27-4CDC-4676-B3D5-D6DAE29D4746}</ProjectGuid>
+    <!-- Sadly, not yet compatible to netcoreapp3.0 -->
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UseWpf>true</UseWpf>
+    <SolutionDir Condition="'$(SolutionDir)' == ''">..\</SolutionDir>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>hello.webapi.wpf</RootNamespace>
     <AssemblyName>hello.webapi.wpf</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Data" />
+    <PackageReference Include="Autofac.Mvc5" Version="4.0.2" />
+    <PackageReference Include="Autofac.WebApi2" Version="4.3.1" />
+    <PackageReference Include="Caliburn.Micro" Version="3.2.0" />
+    <PackageReference Include="Caliburn.Micro.AutofacBootstrap" Version="3.0.1.17" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.7" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Cors" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin.Security" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Owin.SelfHost" Version="4.1.0" />
+    <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
+  </ItemGroup>  
+  <ItemGroup>
     <Reference Include="System.Web" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="IMessageService.cs" />
-    <Compile Include="ISale.cs" />
-    <Compile Include="ISalesViewModel.cs" />
-    <Compile Include="IHaveSales.cs" />
-    <Compile Include="MessageController.cs" />
-    <Compile Include="MessageEvent.cs" />
-    <Compile Include="MessageService.cs" />
-    <Compile Include="OwinWebApiConfig.cs" />
-    <Compile Include="Sale.cs" />
-    <Compile Include="SaleExtensions.cs" />
-    <Compile Include="SalesView.xaml.cs">
-      <DependentUpon>SalesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SalesViewModel.cs" />
-    <Compile Include="SaleView.xaml.cs">
-      <DependentUpon>SaleView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SaleViewModel.cs" />
-    <Compile Include="ShellViewModel.cs" />
-    <Compile Include="SalesController.cs" />
-    <Page Include="SalesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SaleView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ShellView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="IShell.cs" />
-    <Compile Include="ShellView.xaml.cs">
-      <DependentUpon>ShellView.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Autofac.Mvc5">
-      <Version>4.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Autofac.WebApi2">
-      <Version>4.3.1</Version>
-    </PackageReference>
-    <PackageReference Include="Caliburn.Micro">
-      <Version>3.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="Caliburn.Micro.AutofacBootstrap">
-      <Version>3.0.1.17</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Cors">
-      <Version>5.2.7</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost">
-      <Version>5.2.7</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost">
-      <Version>5.2.7</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Owin.Cors">
-      <Version>4.1.0</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Owin.FileSystems">
-      <Version>4.1.0</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Owin.Security">
-      <Version>4.1.0</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Owin.SelfHost">
-      <Version>4.1.0</Version>
-    </PackageReference>
-    <PackageReference Include="Swashbuckle.Core">
-      <Version>5.6.0</Version>
-    </PackageReference>
-    <PackageReference Include="WebActivatorEx">
-      <Version>2.2.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
