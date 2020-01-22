@@ -1,15 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop" ToolsVersion="Current">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop" ToolsVersion="Current">
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
     <!-- Sadly, not yet compatible to netcoreapp3.0 -->
     <TargetFramework>net48</TargetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <UseWpf>true</UseWpf>
     <SolutionDir Condition="'$(SolutionDir)' == ''">..\</SolutionDir>
     <OutputType>WinExe</OutputType>
     <RootNamespace>hello.webapi.wpf</RootNamespace>
     <AssemblyName>hello.webapi.wpf</AssemblyName>
+    <StartupObject>hello.webapi.wpf.Program</StartupObject>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,20 +17,23 @@
     <PackageReference Include="Autofac.WebApi2" Version="4.3.1" />
     <PackageReference Include="Caliburn.Micro" Version="3.2.0" />
     <PackageReference Include="Caliburn.Micro.AutofacBootstrap" Version="3.0.1.17" />
+    <PackageReference Include="CommandLineParser" Version="2.7.82" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.7" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.Owin.Cors" Version="4.1.0" />
     <PackageReference Include="Microsoft.Owin.Security" Version="4.1.0" />
     <PackageReference Include="Microsoft.Owin.SelfHost" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
   </ItemGroup>  
+
   <ItemGroup>
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Web" />
+  </ItemGroup>  
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

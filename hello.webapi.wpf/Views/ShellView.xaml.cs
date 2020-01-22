@@ -1,4 +1,4 @@
-﻿namespace hello.webapi.wpf
+﻿namespace hello.webapi.wpf.Views
 {
     public partial class ShellView
     {

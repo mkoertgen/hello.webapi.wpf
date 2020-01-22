@@ -1,4 +1,6 @@
-namespace hello.webapi.wpf
+using hello.webapi.wpf.Models;
+
+namespace hello.webapi.wpf.Views
 {
     public interface ISalesViewModel : IHaveSales
     {

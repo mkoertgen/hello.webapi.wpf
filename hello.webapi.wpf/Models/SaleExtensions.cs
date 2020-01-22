@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using hello.webapi.wpf.Views;
 
-namespace hello.webapi.wpf
+namespace hello.webapi.wpf.Models
 {
     internal static class SaleExtensions
     {

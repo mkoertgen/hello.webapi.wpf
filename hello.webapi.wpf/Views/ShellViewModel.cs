@@ -1,7 +1,8 @@
 using System;
 using Caliburn.Micro;
+using hello.webapi.wpf.Models;
 
-namespace hello.webapi.wpf
+namespace hello.webapi.wpf.Views
 {
     public class ShellViewModel : Screen, IShell
     {

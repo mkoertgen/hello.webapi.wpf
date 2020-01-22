@@ -1,4 +1,4 @@
-namespace hello.webapi.wpf
+namespace hello.webapi.wpf.Models
 {
     public class Sale : ISale
     {

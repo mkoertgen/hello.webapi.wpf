@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro;
 
-namespace hello.webapi.wpf
+namespace hello.webapi.wpf.Views
 {
     public class SalesViewModel : Screen, ISalesViewModel
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows;
 
-namespace hello.webapi.wpf
+namespace hello.webapi.wpf.Models
 {
     public class MessageService : IMessageService
     {

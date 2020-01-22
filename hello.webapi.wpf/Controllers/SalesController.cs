@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using hello.webapi.wpf.Models;
 
-namespace hello.webapi.wpf
+namespace hello.webapi.wpf.Controllers
 {
     public class SalesController : ApiController
     {
@@ -12,8 +13,7 @@ namespace hello.webapi.wpf
 
         public SalesController(IHaveSales sales)
         {
-            if (sales == null) throw new ArgumentNullException(nameof(sales));
-            _sales = sales;
+            _sales = sales ?? throw new ArgumentNullException(nameof(sales));
         }
 
         public IEnumerable<Sale> Get()

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace hello.webapi.wpf
+namespace hello.webapi.wpf.Views
 {
     /// <summary>
     ///     Interaction logic for SalesView.xaml

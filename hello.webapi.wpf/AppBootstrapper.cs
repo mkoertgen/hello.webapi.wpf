@@ -4,6 +4,8 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using Caliburn.Micro;
 using Caliburn.Micro.Autofac;
+using hello.webapi.wpf.Models;
+using hello.webapi.wpf.Views;
 using Microsoft.Owin.Hosting;
 
 namespace hello.webapi.wpf
