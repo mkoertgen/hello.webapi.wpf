@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <!-- See https://github.com/deepak-rathi/Wix-Setup-Samples -->
+
+  <?include config.wxi ?>
+  <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="cceddad9-6fed-41a8-828b-1524ccaeb2e3">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Description="$(var.ProductDescription)" Comments="Configuration: $(var.Configuration)" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <!--Application logo-->
+    <Icon Id="AppIcon" SourceFile="Resources\app.ico" />
+    <!--Application logo for Control Panel-->
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="$(var.ProductName)" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="COMPANYFOLDER" Name="$(var.Manufacturer)">
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)">
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="CompanyStartupMenu" Name="$(var.Manufacturer)"/>
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+
+
+    <!-- cleanup -->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="CleanupMainApplicationFolder" Guid="*">
+        <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.Manufacturer)\$(var.ProductName)" Name="PathPrograms" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes" />
+        <RemoveFolder Id="INSTALLFOLDER" On="uninstall"/>
+      </Component>
+    </DirectoryRef>
+
+    <!-- define shortcuts -->
+    <DirectoryRef Id="CompanyStartupMenu">
+      <Component Id="ApplicationShortcut" Guid="*">
+        <Shortcut Id="StartProduct" Name="$(var.Manufacturer) $(var.ProductName) ($(var.ProductVersion))" Description="$(var.Manufacturer) $(var.ProductName)" Target="[INSTALLFOLDER]$(var.Executable)" WorkingDirectory="INSTALLFOLDER"/>
+        <Shortcut Id="UninstallProduct" Name="Uninstall $(var.Manufacturer) $(var.ProductName)" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Description="Uninstalls $(var.Manufacturer) $(var.ProductName)" />
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        <RemoveFolder Id="RemoveFolder" On="uninstall" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="*">
+        <Shortcut Id="StartProductDesktop" Name="$(var.ProductName)" Description="$(var.ProductDescription)" Target="[INSTALLFOLDER]$(var.Executable)" WorkingDirectory="INSTALLFOLDER"/>
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="desktop" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <!-- Protocol handler -->
+    <Component Id='ProtocolHandler' Guid='{4CDC1F0D-7E56-4E55-91E1-98B9A02BD755}' Directory='INSTALLFOLDER'>
+      <File Id="fileIcon" KeyPath="yes" Source="Resources\app.ico"/>
+      <RegistryKey Id='$(var.Protocol)' Root='HKCR'
+                   Key='$(var.Protocol)' ForceCreateOnInstall='yes' ForceDeleteOnUninstall='yes'>
+        <RegistryValue Type='string' Value='URL:$(var.ProductName) protocol'/>
+        <RegistryValue Type='string' Name='URL Protocol' Value='' />
+        <RegistryKey Key='DefaultIcon'>
+          <RegistryValue Type='string' Value='[INSTALLFOLDER]$(var.Executable)'/>
+        </RegistryKey>
+        <RegistryKey Key='shell'>
+          <RegistryValue Type='string' Value='open'/>
+          <RegistryKey Key='open'>
+            <RegistryKey Key='command'>
+              <RegistryValue Type='string' Value='&quot;[INSTALLFOLDER]$(var.Executable)&quot; &quot;%1&quot;'/>
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </RegistryKey>
+    </Component>
+
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <ComponentGroupRef Id ="_app"/>
+      <ComponentRef Id="CleanupMainApplicationFolder" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+      <ComponentRef Id="ProtocolHandler" />
+    </ComponentGroup>
+
+  </Fragment>
+</Wix>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define AssemblySemFileVer="0.1.0.0"?>
+  <?define AssemblySemVer="0.1.0.0"?>
+  <?define BranchName="master"?>
+  <?define BuildMetaData="8"?>
+  <?define BuildMetaDataPadded="0008"?>
+  <?define CommitDate="2020-01-22"?>
+  <?define CommitsSinceVersionSource="8"?>
+  <?define CommitsSinceVersionSourcePadded="0008"?>
+  <?define FullBuildMetaData="8.Branch.master.Sha.f3d6e0ff7af5037a4efb8dfdd1048371c47acbe1"?>
+  <?define FullSemVer="0.1.0+8"?>
+  <?define InformationalVersion="0.1.0+8.Branch.master.Sha.f3d6e0ff7af5037a4efb8dfdd1048371c47acbe1"?>
+  <?define LegacySemVer="0.1.0"?>
+  <?define LegacySemVerPadded="0.1.0"?>
+  <?define Major="0"?>
+  <?define MajorMinorPatch="0.1.0"?>
+  <?define Minor="1"?>
+  <?define NuGetPreReleaseTag=""?>
+  <?define NuGetPreReleaseTagV2=""?>
+  <?define NuGetVersion="0.1.0"?>
+  <?define NuGetVersionV2="0.1.0"?>
+  <?define Patch="0"?>
+  <?define PreReleaseLabel=""?>
+  <?define PreReleaseNumber=""?>
+  <?define PreReleaseTag=""?>
+  <?define PreReleaseTagWithDash=""?>
+  <?define SemVer="0.1.0"?>
+  <?define Sha="f3d6e0ff7af5037a4efb8dfdd1048371c47acbe1"?>
+  <?define ShortSha="f3d6e0f"?>
+  <?define VersionSourceSha="2d60a3be5d05a780c7accececf5cf9988a9fc7dd"?>
+  <?define WeightedPreReleaseNumber=""?>
+</Include>

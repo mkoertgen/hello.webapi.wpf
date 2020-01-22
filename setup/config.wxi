@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define Manufacturer = "awesome-inc" ?>
+  <?define ProductName = "hello.webapi.wpf" ?>
+  <?define Executable = "hello.webapi.wpf.exe" ?>
+  <!-- gitversion /updatewixversionfile -->
+  <?include GitVersion_WixVersion.wxi ?>
+  <?define ProductVersion = "$(var.AssemblySemVer)" ?>
+  <?define ProductDescription = "$(var.ProductName), version: $(var.InformationalVersion)" ?>
+
+  <!-- protocol handler -->
+  <?define Protocol = "hello" ?>
+</Include>
