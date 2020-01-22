@@ -61,7 +61,7 @@ Use `POST` to add, `PUT` for update and `DELETE` to remove a sale.
 A custom url [protocol handler](https://docs.microsoft.com/en-us/archive/blogs/noahc/register-a-custom-url-protocol-handler) is a great way to launch (or activate) your application directly from your browser.
 
 To install/register a protocol handler you need elevated privileges.
-The example setup project does just that, so after installing you can bring a Windows terminal and typeconsole
+The example setup project does just that, so after installing you can bring a Windows terminal and type
 
 ```console
 start hellowpf://foo/bar
