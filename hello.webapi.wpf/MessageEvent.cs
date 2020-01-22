@@ -2,13 +2,6 @@ namespace hello.webapi.wpf
 {
     public class MessageEvent
     {
-        public string Message { get; set; }
-        public string Caption { get; set; }
-        public MessageButton Button { get; set; }
-        public MessageImage Icon { get;set; }
-
-        public MessageResult Result { get; set; }
-
         public MessageEvent()
         {
             Caption = "Information";
@@ -16,9 +9,16 @@ namespace hello.webapi.wpf
             Icon = MessageImage.Information;
         }
 
+        public string Message { get; set; }
+        public string Caption { get; set; }
+        public MessageButton Button { get; set; }
+        public MessageImage Icon { get; set; }
+
+        public MessageResult Result { get; set; }
+
         public static MessageEvent Info(string message)
         {
-            return new MessageEvent { Message = message };
+            return new MessageEvent {Message = message};
         }
 
         public static MessageEvent Warning(string message)

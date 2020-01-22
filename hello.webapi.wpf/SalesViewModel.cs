@@ -8,15 +8,15 @@ namespace hello.webapi.wpf
     {
         private readonly BindableCollection<SaleViewModel> _sales = new BindableCollection<SaleViewModel>
         {
-            new SaleViewModel{ Id = 4645, Buyer = "John Smith"}
-            ,new SaleViewModel{ Id = 23455, Buyer = "Mark Johnson"}
+            new SaleViewModel {Id = 4645, Buyer = "John Smith"}, new SaleViewModel {Id = 23455, Buyer = "Mark Johnson"}
         };
+
         private SaleViewModel _selectedSale;
 
 
         public IList<SaleViewModel> Sales
         {
-            get { return _sales; }
+            get => _sales;
             set
             {
                 _sales.Clear();
@@ -27,7 +27,7 @@ namespace hello.webapi.wpf
 
         public SaleViewModel SelectedSale
         {
-            get { return _selectedSale; }
+            get => _selectedSale;
             set
             {
                 if (Equals(value, _selectedSale)) return;

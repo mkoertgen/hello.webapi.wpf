@@ -4,6 +4,6 @@ namespace hello.webapi.wpf
 {
     public interface IHaveSales
     {
-        IList<SaleViewModel> Sales { get; } 
+        IList<SaleViewModel> Sales { get; }
     }
 }

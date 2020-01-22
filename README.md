@@ -6,22 +6,22 @@ You can talk to the WPF application using your browser with the integrated [Swag
 
 ### HTTP Get
 
-Navigating to [http://localhost:9000/api/info?message=Hello World](http://localhost:9000/api/info?message=Hello%20World)
+Navigating to [http://localhost:9000/api/info?message=Hello World](http://localhost:9000/api/info?message=Hello%20World) shows up a standard WPF message box
 
-shows up a standard WPF message box
-
-![](hello.webapi.wpf.png).
+![info box via http get](hello.webapi.wpf.png).
 
 ### HTTP Post
 
 Post a `Message` object like this
 
-	{
-    	"Message":"Do you want to save?",
-	    "Caption":"Info",
-    	"Button":"YesNoCancel",
-	    "Icon":"Question"
-	}
+```json
+{
+    "Message":"Do you want to save?",
+    "Caption":"Info",
+    "Button":"YesNoCancel",
+    "Icon":"Question"
+}
+```
 
 ### Message Controllers
 
@@ -31,11 +31,15 @@ For messages there are controllers for `info, warning, error` and `question`. No
 
 The most typical use case for REST is to expose a collection. Here, we added a simple `sales` controller. Use the standard HTTP verbs, e.g. a `GET`: like	[http://localhost:9000/api/sales](http://localhost:9000/api/sales)
 
-	[{"Id":4645,"Buyer":"John Smith"},{"Id":23455,"Buyer":"Mark Johnson"}]
+```json
+[{"Id":4645,"Buyer":"John Smith"},{"Id":23455,"Buyer":"Mark Johnson"}]
+```
 
 or [http://localhost:9000/api/sales/4645](http://localhost:9000/api/sales/4645)
-	
-	{"Id":4645,"Buyer":"John Smith"} 
+    
+```json
+{"Id":4645,"Buyer":"John Smith"} 
+```
 
 Use `POST` to add, `PUT` for update and `DELETE` to remove a sale. 
 

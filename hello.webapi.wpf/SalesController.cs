@@ -32,7 +32,7 @@ namespace hello.webapi.wpf
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             _sales.Sales.Add(model.ToViewModel());
-            return CreatedAtRoute("DefaultApi", new { id = model.Id }, model);
+            return CreatedAtRoute("DefaultApi", new {id = model.Id}, model);
         }
 
         public IHttpActionResult PutSale(int id, Sale model)

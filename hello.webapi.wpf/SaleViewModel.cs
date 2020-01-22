@@ -4,12 +4,12 @@ namespace hello.webapi.wpf
 {
     public class SaleViewModel : PropertyChangedBase, ISale
     {
-        private int _id;
         private string _buyer;
+        private int _id;
 
         public int Id
         {
-            get { return _id; }
+            get => _id;
             set
             {
                 if (value == _id) return;
@@ -20,7 +20,7 @@ namespace hello.webapi.wpf
 
         public string Buyer
         {
-            get { return _buyer; }
+            get => _buyer;
             set
             {
                 if (value == _buyer) return;

@@ -8,9 +8,9 @@
             MessageResult = messageResult;
         }
 
-        public string Input { get; private set; }
+        public string Input { get; }
 
-        public MessageResult MessageResult { get; private set; }
+        public MessageResult MessageResult { get; }
     }
 
     public enum MessageResult
@@ -27,7 +27,7 @@
         Ok = 0,
         OkCancel = 1,
         YesNoCancel = 3,
-        YesNo = 4,
+        YesNo = 4
     }
 
     public enum MessageImage
@@ -36,7 +36,7 @@
         Error = 16,
         Question = 32,
         Warning = 48,
-        Information = 64,
+        Information = 64
     }
 
     public interface IMessageService

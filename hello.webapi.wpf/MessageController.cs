@@ -41,7 +41,8 @@ namespace hello.webapi.wpf
     public class WarningController : MessageController
     {
         public WarningController(IEventAggregator events) : base(events)
-        {}
+        {
+        }
 
         protected override MessageEvent FormatMessage(string message)
         {
@@ -52,7 +53,8 @@ namespace hello.webapi.wpf
     public class InfoController : MessageController
     {
         public InfoController(IEventAggregator events) : base(events)
-        { }
+        {
+        }
 
         protected override MessageEvent FormatMessage(string message)
         {
@@ -63,7 +65,8 @@ namespace hello.webapi.wpf
     public class ErrorController : MessageController
     {
         public ErrorController(IEventAggregator events) : base(events)
-        { }
+        {
+        }
 
         protected override MessageEvent FormatMessage(string message)
         {
@@ -74,7 +77,8 @@ namespace hello.webapi.wpf
     public class QuestionController : MessageController
     {
         public QuestionController(IEventAggregator events) : base(events)
-        { }
+        {
+        }
 
         protected override MessageEvent FormatMessage(string message)
         {

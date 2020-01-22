@@ -8,7 +8,6 @@ namespace hello.webapi.wpf
     public class ShellViewModel : Screen, IShell
     {
         private readonly IMessageService _messageService;
-        public ISalesViewModel Sales { get; private set; }
 
         public ShellViewModel(IEventAggregator events, ISalesViewModel salesViewModel, IMessageService messageService)
         {
@@ -23,6 +22,8 @@ namespace hello.webapi.wpf
             // ReSharper disable once DoNotCallOverridableMethodsInConstructor
             DisplayName = "Hello.WebAPI.WPF";
         }
+
+        public ISalesViewModel Sales { get; }
 
         public void Handle(MessageEvent message)
         {

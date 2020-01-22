@@ -17,9 +17,9 @@ namespace hello.webapi.wpf
             config.EnableCors();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional });
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new {id = RouteParameter.Optional});
 
             // we don't want no XML, just JSON, cf.:
             // http://codebetter.com/glennblock/2012/02/26/disabling-the-xml-formatter-in-asp-net-web-apithe-easy-way-2/

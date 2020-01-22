@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace hello.webapi.wpf
 {
-    static class SaleExtensions
+    internal static class SaleExtensions
     {
         public static IEnumerable<Sale> ToModel(this IEnumerable<SaleViewModel> sales)
         {
@@ -17,7 +17,7 @@ namespace hello.webapi.wpf
 
         public static SaleViewModel ToViewModel(this Sale model)
         {
-            return new SaleViewModel { Id = model.Id, Buyer = model.Buyer };
+            return new SaleViewModel {Id = model.Id, Buyer = model.Buyer};
         }
 
         public static void FromModel(this SaleViewModel viewModel, Sale model)

@@ -6,12 +6,14 @@ namespace hello.webapi.wpf
 {
     public class MessageService : IMessageService
     {
-        public MessageResult Show(string message, string caption = null, MessageButton button = MessageButton.Ok, MessageImage icon = MessageImage.None)
+        public MessageResult Show(string message, string caption = null, MessageButton button = MessageButton.Ok,
+            MessageImage icon = MessageImage.None)
         {
             return ShowMessageBox(message, caption ?? string.Empty, button, icon);
         }
 
-        static MessageResult ShowMessageBox(string message, string caption, MessageButton button, MessageImage icon)
+        private static MessageResult ShowMessageBox(string message, string caption, MessageButton button,
+            MessageImage icon)
         {
             if (string.IsNullOrEmpty(message))
                 throw new ArgumentNullException(nameof(message));
@@ -27,19 +29,19 @@ namespace hello.webapi.wpf
             return TranslateMessageBoxResult(result);
         }
 
-        static MessageResult TranslateMessageBoxResult(MessageBoxResult result)
+        private static MessageResult TranslateMessageBoxResult(MessageBoxResult result)
         {
             var value = result.ToString();
-            return (MessageResult)Enum.Parse(typeof(MessageResult), value, true);
+            return (MessageResult) Enum.Parse(typeof(MessageResult), value, true);
         }
 
-        static MessageBoxImage TranslateMessageImage(MessageImage image)
+        private static MessageBoxImage TranslateMessageImage(MessageImage image)
         {
             var value = image.ToString();
-            return (MessageBoxImage)Enum.Parse(typeof(MessageBoxImage), value, true);
+            return (MessageBoxImage) Enum.Parse(typeof(MessageBoxImage), value, true);
         }
 
-        static Window GetActiveWindow()
+        private static Window GetActiveWindow()
         {
             if (Application.Current == null) return null;
 
@@ -47,12 +49,12 @@ namespace hello.webapi.wpf
             return active ?? Application.Current.MainWindow;
         }
 
-        static MessageBoxButton TranslateMessageButton(MessageButton button)
+        private static MessageBoxButton TranslateMessageButton(MessageButton button)
         {
             try
             {
                 var value = button.ToString();
-                return (MessageBoxButton)Enum.Parse(typeof(MessageBoxButton), value, true);
+                return (MessageBoxButton) Enum.Parse(typeof(MessageBoxButton), value, true);
             }
             catch (Exception)
             {
