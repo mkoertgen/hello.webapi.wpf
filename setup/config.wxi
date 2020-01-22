@@ -9,5 +9,5 @@
   <?define ProductDescription = "$(var.ProductName), version: $(var.InformationalVersion)" ?>
 
   <!-- protocol handler -->
-  <?define Protocol = "hello" ?>
+  <?define Protocol = "hellowpf" ?>
 </Include>

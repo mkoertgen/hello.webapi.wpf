@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -22,6 +22,7 @@ namespace hello.webapi.wpf.Models
             var messageBoxImage = TranslateMessageImage(icon);
 
             var activeWindow = GetActiveWindow();
+            activeWindow?.BringToFront();
             var result = activeWindow != null
                 ? MessageBox.Show(activeWindow, message, caption, messageBoxButton, messageBoxImage)
                 : MessageBox.Show(message, caption, messageBoxButton, messageBoxImage);
