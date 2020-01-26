@@ -64,10 +64,15 @@ To install/register a protocol handler you need elevated privileges.
 The example setup project does just that, so after installing you can bring a Windows terminal and type
 
 ```console
-start hellowpf://foo/bar
+start "hellowpf://question/How are you?"
 ```
 
-to bring up the application.
+to bring up the application. Alternatively, from the browser check these links
+
+- [hellowpf://question/How are you?](hellowpf://question/How are you?)
+- [hellowpf://information/Hello World!](hellowpf://information/Hello World!)
+- [hellowpf://warning/Do you really want to proceed?](hellowpf://warning/Do you really want to proceed?)
+- [hellowpf://error/An error occurred.](hellowpf://error/An error occurred.)
 
 ## Links
 

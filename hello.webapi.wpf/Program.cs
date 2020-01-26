@@ -12,11 +12,8 @@ namespace hello.webapi.wpf
         {
             var app = new App();
             if (SingleInstance.InitializeAsFirstInstance(Name, app))
-            {
-                app.InitializeComponent();
                 app.Run();
-            }
-            else 
+            else
                 SingleInstance.SignalFirstInstance(Name, args);
         }
     }

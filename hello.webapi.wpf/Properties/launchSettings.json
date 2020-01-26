@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "hello.webapi.wpf": {
+      "commandName": "Project",
+      "commandLineArgs": "\"hellowpf://information/This is an informational message\""
+    }
+  }
+}

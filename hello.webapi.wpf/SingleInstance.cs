@@ -1,3 +1,27 @@
+//-----------------------------------------------------------------------
+// <copyright file="SingleInstance.cs" company="Microsoft">
+//     Copyright (c) Microsoft Corporation.  All rights reserved.
+// </copyright>
+// <summary>
+//     This class checks to make sure that only one instance of 
+//     this application is running at a time.
+// </summary>
+//-----------------------------------------------------------------------
+// Where does this come from? This is an adapted & cleaned up version of
+// a battle-proven approach implemented by Microsoft and others for a
+// single instance WPF app that can
+//
+// - be used with custom url protocol handlers (so integrating browser-workflows become easy)
+// - activate the first instance w. marshalling the supplied command line arguments (uses deprecated remoting, though)
+//
+// References:
+// - http://blogs.microsoft.co.il/blogs/arik/SingleInstance.cs.txt
+// - https://github.com/microsoft/EyeDrive/blob/master/EyeDrive/SingleInstance.cs
+// - https://github.com/joecastro/wpf-shell/blob/master/Microsoft.Windows.Shell/standard.net/Wpf/SingleInstance.cs
+// - https://github.com/JohanLarsson/Gu.Wpf.SingleInstance/blob/master/Gu.Wpf.SingleInstance/SingleInstance.cs
+// - https://stackoverflow.com/a/44774609/2592915
+// - https://www.meziantou.net/single-instance-of-an-application-in-csharp.htm
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,10 +48,10 @@ namespace hello.webapi.wpf
     /// </summary>
     /// <remarks>
     /// Note: this class should be used with some caution, because it does no
-    /// security checking. HasScreen example, if one instance of an app that uses this class
+    /// security checking. For example, if one instance of an app that uses this class
     /// is running as Administrator, any other instance, even if it is not
     /// running as Administrator, can activate it with command line arguments.
-    /// HasScreen most apps, this will not be much of an issue.
+    /// For most apps, this will not be much of an issue.
     /// </remarks>
     [ExcludeFromCodeCoverage]
     public static class SingleInstance

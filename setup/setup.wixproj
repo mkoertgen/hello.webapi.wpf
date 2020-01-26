@@ -3,25 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>3.10</ProductVersion>
+    <ProductVersion>3.11</ProductVersion>
     <ProjectGuid>eb7dea03-5827-4845-b528-a77847345145</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputName>setup</OutputName>
     <OutputType>Package</OutputType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Product.wxs" />
-  </ItemGroup>
-  <ItemGroup>
+      <Compile Include="Product.wxs" />
     <Content Include="config.wxi" />
     <Content Include="GitVersion_WixVersion.wxi" />
     <Content Include="packages.config" />
@@ -51,28 +42,7 @@
       <ComponentGroupName>_app</ComponentGroupName>
       <PreprocessorVariable>var.ApplicationOutput</PreprocessorVariable>
     </HarvestDirectory>
-    <!-- Needed to cleanup install folder before copying over the new files, cf.:
-      - https://www.hass.de/content/wix-how-use-removefolderex-your-xml-scripts
-    -->
-    <WixExtension Include="WixUtilExtension">
-      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
-      <Name>WixUtilExtension</Name>
-    </WixExtension>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="..\" />
-    <Folder Include="..\hello.webapi.wpf\" />
-    <Folder Include="..\hello.webapi.wpf\bin\" />
-    <Folder Include="..\hello.webapi.wpf\bin\Debug\" />
-    <Folder Include="Resources" />
-  </ItemGroup>
-  <!--
-  <ItemGroup>
-    <Folder Include="..\" />
-    <Folder Include="..\$(AppName)\" />
-    <Folder Include="..\$(AppName)\bin\" />
-  </ItemGroup>
-  -->
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

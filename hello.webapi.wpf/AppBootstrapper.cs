@@ -1,6 +1,7 @@
 using System.Reflection;
 using System.Windows;
 using Autofac;
+using Autofac.Core;
 using Autofac.Integration.WebApi;
 using Caliburn.Micro;
 using Caliburn.Micro.Autofac;
@@ -12,6 +13,8 @@ namespace hello.webapi.wpf
 {
     public class AppBootstrapper : AutofacBootstrapper<ShellViewModel>
     {
+        internal IComponentContext ComponentContext => Container;
+
         public AppBootstrapper()
         {
             Initialize();
